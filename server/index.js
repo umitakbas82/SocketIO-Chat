@@ -1,9 +1,11 @@
-const ws= require("ws");
+const ws= require('ws');
 const server = new ws.Server({port:'3000'});
 
-server.on("conncection", socket=>{
-    socket.on("message", message=>{
-        console.log(message)
+server.on('conncection', socket=>{
+    socket.on('message', message=>{
+        const b= Buffer.from(message)
+      
+        console.log(b.toString())
         socket.send(`${message}`)
         
     })
